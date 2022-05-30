@@ -38,6 +38,15 @@ app.post('/post_emergency', (req, res) => {
     res.send(emergency);
 });
 
+app.get('/get_emergency', (_req, res) => {
+    if(!emergency){
+        res.send("No emergency Data");
+        console.log("No emergency Data");
+        return
+    }
+    res.send(emergency);
+});
+
 
 const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () =>{
