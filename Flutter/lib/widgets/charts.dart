@@ -60,7 +60,7 @@ class _ChartsState extends State<Charts> {
 
   void _updateTempData(Timer timer) async {
     if (widget.patientNumber == 0 || widget.patientNumber == 1) {
-      String url = 'https://evening-inlet-62116.herokuapp.com/get_readings';
+      String url = 'http://192.168.1.7:8080/get_readings';
       var response = await http.get(Uri.parse(url));
       var data = json.decode(response.body);
       var y;
@@ -85,7 +85,7 @@ class _ChartsState extends State<Charts> {
 
   void _updatehumData(Timer timer) async {
     if (widget.patientNumber == 0 || widget.patientNumber == 1) {
-      String url = 'https://evening-inlet-62116.herokuapp.com/get_readings';
+      String url = 'http://172.28.128.65:8080/get_readings';
       var response = await http.get(Uri.parse(url));
       var data = json.decode(response.body);
       var y;
@@ -109,7 +109,7 @@ class _ChartsState extends State<Charts> {
   }
 
   Future<void> _postTempSpeedUp() async {
-    String url = 'https://evening-inlet-62116.herokuapp.com/post_emergency';
+    String url = 'http://172.28.128.65:8080/post_emergency';
     var response = await http.post(
       Uri.parse(url),
       body: {'emergency': '1'},
@@ -118,7 +118,7 @@ class _ChartsState extends State<Charts> {
   }
 
   Future<void> _posthumSpeedUp() async {
-    String url = 'https://evening-inlet-62116.herokuapp.com/post_emergency';
+    String url = 'http://192.168.1.7:8080/post_emergency';
     var response = await http.post(
       Uri.parse(url),
       body: {'emergency': '0'},
